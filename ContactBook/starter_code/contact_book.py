@@ -24,7 +24,7 @@ contacts = []
 # =============================================================================
 # TODO: Task 1 - Create the Contact Book
 # =============================================================================
-
+#contacts is the list of dictionaries, all other parameters are strings
 def add_contact(contacts, name, phone, email, category):
     """
     Add a new contact to the contact book.
@@ -44,7 +44,7 @@ def add_contact(contacts, name, phone, email, category):
         "phone": phone,
         "email": email,
         "category": category,
-        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        "created_at": datetime.now()
     }
     contacts.append(newContact)
     return newContact
@@ -57,7 +57,7 @@ def add_contact(contacts, name, phone, email, category):
 # =============================================================================
 # TODO: Task 2 - Display Contacts
 # =============================================================================
-
+#contacts is a list of dictionaries
 def display_all_contacts(contacts):
     """
     Display all contacts in a formatted table.
@@ -92,8 +92,13 @@ def display_contact_details(contact):
     ------------------------
     """
     # TODO: Print formatted contact details
-    print(contact)
-
+    print("--- Contact Details ---")
+    print(f"Name:     [{contact["name"]}]")
+    print(f"Phone:    [{contact["phone"]}]")
+    print(f"Email:    [{contact["email"]}]")
+    print(f"Category: [{contact["category"]}]")
+    print(f"Added:    [{contact["created_at"].strftime("%Y-%m-%d %H:%M:%S")}]")
+    print("-----------------------")
 
 # =============================================================================
 # TODO: Task 3 - Search Functionality
@@ -219,16 +224,18 @@ def display_statistics(contacts):
     for i in range(len(contacts)):
         categoryCounts[contacts[i]["category"]] += 1
     mostRecentContact = contacts[1]
+    for i in range(len(contacts)):
+        if contacts[i]["created_at"] > mostRecentContact["created_at"]:
+            mostRecentContact = contacts[i]
     print("Total Contacts: " + str(len(contacts)))
     print("By Category:")
     print(f"  - Friends: {categoryCounts["friend"]}")
     print(f"  - Family: {categoryCounts["family"]}")
     print(f"  - Work: {categoryCounts["work"]}")
     print(f"  - Other: {categoryCounts["other"]}")
-    print(f"Most Recent: [{mostRecentContact["name"]}] (added [{mostRecentContact["created_at"]}])")
+    print(f"Most Recent: [{mostRecentContact["name"]}] (added [{mostRecentContact["created_at"].strftime("%Y-%m-%d %H:%M:%S")}])")
     print("-------------------------------")
-    #for i in range(len(contacts)):
-        
+    
     pass
 
 
@@ -268,9 +275,8 @@ if __name__ == "__main__":
     add_contact(contacts, "Alice Johnson", "555-123-4567", "alice@example.com", "friend")
     add_contact(contacts, "Mike Smith", "717-571-1752", "mike@example.com", "family")
     add_contact(contacts, "Aloacious OHare", "185-816-3782", "aloacious@example.com", "work")
-    add_contact(contacts, "Harry Potter", "222-926-9817", "harry@example.com", "other")
     add_contact(contacts, "Squidward Tentacles", "246-125-1256", "squiddy@example.com", "friend")
-    
+    add_contact(contacts, "Harry Potter", "222-926-9817", "harry@example.com", "other")
     #display_all_contacts(contacts)
     #display_contact_details
 
@@ -281,6 +287,9 @@ if __name__ == "__main__":
     #print(contacts)
     #print(result)
 
-    display_statistics(contacts)
+    #display_statistics(contacts)
+    
+    display_contact_details(contacts[4])
+    
     # STRETCH: Uncomment to run interactive menu
     # main()
