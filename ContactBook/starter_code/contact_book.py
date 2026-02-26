@@ -64,7 +64,7 @@ def display_all_contacts(contacts):
     
     Output format:
     =============================================
-                CONTACT BOOK (X contacts)
+                CONTACT BOOK (X contacts)        
     =============================================
     #  | Name            | Phone         | Category
     ---|-----------------|---------------|----------
@@ -75,8 +75,11 @@ def display_all_contacts(contacts):
     # TODO: Print table headers
     # TODO: Loop through contacts and print each row
     # TODO: Print footer
-    print(contacts)
-
+    print("=============================================")
+    print(f"            CONTACT BOOK ({len(contacts)} contacts)")
+    print("=============================================")
+    for i, contact in enumerate(contacts):
+        print(f"{i}  |{contact["name"]}|{contact["phone"]}|{contact["category"]}")
 
 def display_contact_details(contact):
     """
