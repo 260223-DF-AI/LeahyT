@@ -176,7 +176,7 @@ def update_contact(contacts, phone, field, new_value):
     """
     updatedContact = find_by_phone(contacts, phone)
     if updatedContact != []:
-        updatedContact[0][field] = new_value
+        updatedContact[field] = new_value
     else:
         return False    
     # TODO: Find contact by phone
@@ -267,7 +267,68 @@ def main():
     # Use while True and break on exit choice
     while True:
         display_menu()
-        exit()
+        try:
+            choice = input("Enter Choice:")
+        except:
+            print("Please enter an integer")
+        if choice == "0":
+            exit()
+        elif choice == "1":
+            display_all_contacts(contacts)
+        elif choice == "2":
+            name = input("New Contact Name: ")
+            phone = input("New Contact Phone Number: ")
+            contact = input("New Contact Email: ")
+            category = input("New Contact Category: ")
+            add_contact(contacts, name, phone, contact, category)
+        elif choice == "3":
+            while True:
+                choice = input("Search by name, phone number, or category? (n, p, c): ")
+                if choice == "n":
+                    choice = input("Enter the name to search for: ")
+                    foundNameList = search_by_name(contacts, choice)
+                    if len(foundNameList) == 0:
+                        print("No contacts found.")
+                    else:
+                        for contact in foundNameList:
+                            display_contact_details(contact)
+                    break
+                elif choice == "p":
+                    choice = input("Enter the phone number to search for: ")
+                    foundPhoneList = find_by_phone(contacts, choice)
+                    if len(foundPhoneList) == 0:
+                        print("No contacts found.")
+                    else:
+                        for contact in foundPhoneList:
+                            display_contact_details(contact)
+                    break
+                elif choice == "c":
+                    choice = input("Enter the category to search for: ")
+                    foundCategoryList = filter_by_category(contacts, choice)
+                    if len(foundCategoryList) == 0:
+                        print("No contacts found.")
+                    else:
+                        for contact in foundCategoryList:
+                            display_contact_details(contact)
+                    break
+                else:
+                    print("Please enter either n, p, or c")
+        elif choice == "4":
+            phone = input("Please enter the phone number of the contact you would like to edit: ")
+            field = input("Please enter the field you would like to edit: ")
+            newValue = input("Please enter the new info you would like to put in that field: ")
+            if update_contact(contacts, phone, field, newValue):
+                print("Updated contact successfully")
+            else:
+                print("Error: wrong phone number or invalid field")
+        elif choice == "5":
+            choice = input("Please enter the phone number of the contact you would like to delete: ")
+            if delete_contact(contacts, choice):
+                print("Deleted contact successfully")
+            else:
+                print("Error: wrong phone number")
+        elif choice == "6":    
+            display_statistics(contacts)
     pass
 
 
@@ -302,4 +363,4 @@ if __name__ == "__main__":
     display_all_contacts(contacts)
 
     # STRETCH: Uncomment to run interactive menu
-    # main()
+    main()
