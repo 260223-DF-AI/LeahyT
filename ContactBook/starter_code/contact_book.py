@@ -265,6 +265,9 @@ def main():
     """Main function with interactive menu."""
     # TODO: Implement menu loop
     # Use while True and break on exit choice
+    while True:
+        display_menu()
+        exit()
     pass
 
 
