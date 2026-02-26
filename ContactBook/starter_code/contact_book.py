@@ -78,8 +78,10 @@ def display_all_contacts(contacts):
     print("=============================================")
     print(f"            CONTACT BOOK ({len(contacts)} contacts)")
     print("=============================================")
+    print("#  | Name            | Phone         | Category")
+    print("---|-----------------|---------------|----------")
     for i, contact in enumerate(contacts):
-        print(f"{i}  |{contact["name"]}|{contact["phone"]}|{contact["category"]}")
+        print(f"{i}  | {contact["name"]} | {contact["phone"]} | {contact["category"]}")
 
 def display_contact_details(contact):
     """
@@ -292,7 +294,9 @@ if __name__ == "__main__":
 
     #display_statistics(contacts)
     
-    display_contact_details(contacts[4])
+    #display_contact_details(contacts[4])
     
+    display_all_contacts(contacts)
+
     # STRETCH: Uncomment to run interactive menu
     # main()
