@@ -73,8 +73,12 @@ def validate_all_records(records):
     
     Returns: Tuple of (valid_records, error_list)
     """
+    #initialize return lists
     valid_records = []
     error_list = []
+
+    # for every record in records, call validate_sales_record().
+    # add to valid_records or error_list appropriately
     for i, record in enumerate(records):
         try:
             validate_sales_record(record, i)
