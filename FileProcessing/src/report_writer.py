@@ -14,23 +14,26 @@ def write_summary_report(filepath, valid_records, errors, aggregations):
     """
     # begin writing new file
     with open(filepath, 'w') as file:
-        file.write(f"Total records processed: {len(valid_records) + len(errors)}")
-        file.write(f"Number of valid records: {len(valid_records)}")
-        file.write(f"Number of errors:        {len(errors)}")
+        file.write(f"Total records processed: {len(valid_records) + len(errors)}\n")
+        file.write(f"Number of valid records: {len(valid_records)}\n")
+        file.write(f"Number of errors:        {len(errors)}\n\n")
         
         # write store total for each store
         for store, total in aggregations[0].items():
-            file.write(f"{store} total sales: {total}")
+            file.write(f"{store} total sales: {total}\n")
 
+        file.write("\n")
         # write product total for each product, and get top 5 products with the most sales
         for product, total in aggregations[1].items():
-            file.write(f"{product} total sales: {total}")
-
-        topFive = sorted(aggregations[1], key=lambda x: x["total"], reverse=True)[:5]     
-        file.write("Top 5 Products:")
+            file.write(f"{product} total sales: {total}\n")
+        
+        #topFive = sorted(aggregations[1], key=lambda x: x["total"], reverse=True)[:5]     
+        print("fix top 5 here")
+        topFive = aggregations[1]
+        file.write("Top 5 Products:\n")
         topCounter = 1
         for product, total in topFive.items():
-            file.write(f"{topCounter}.    {product}: {total}")
+            file.write(f"{topCounter}.    {product}: {total}\n")
             topCounter += 1   
 
 def write_clean_csv(filepath, records):

@@ -24,12 +24,11 @@ def validate_sales_record(record, line_number):
         dateList = record["date"].split("-")
         
         # verify all common things between dates like is integer or <= 0
-        for number in dateList:
+        for i, number in enumerate(dateList):
             # convert date number to integer
-            number = int(number)
-            if number <= 0:
+            dateList[i] = int(number)
+            if dateList[i] <= 0:
                 raise ValueError
-            
         # make sure year, month and day are in proper range
         if dateList[0] < 1900 or dateList[0] > 2026:
             raise ValueError
@@ -60,6 +59,7 @@ def validate_sales_record(record, line_number):
     # verify price is a float greater than 0
     try:
         record["price"] = float(record["price"])
+        
         if record["price"] <= 0.0:
             raise ValueError
     except Exception as e:

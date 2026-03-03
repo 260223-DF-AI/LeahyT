@@ -18,6 +18,7 @@ def read_csv_file(filepath):
             fileContentList = []
             entryDict = {}
             # for every line in the file
+            
             for i, line in enumerate(file):
             
                 # for the first line of every file, there will be data that shows the keys for each column.
@@ -28,9 +29,13 @@ def read_csv_file(filepath):
                     for newKey in entry:
                         entryDict[newKey] = None
                         continue
-                for j, key in entryDict:
-                    entryDict[key] = entry[j]
+                
+                counter = 0
+                for key in entryDict:
+                    entryDict[key] = entry[counter]
+                    counter += 1
                 fileContentList.append(entryDict)
+                
     except FileNotFoundError as e:
         print(f"Error: {e}. Did you give the correct file name?")
         raise FileProcessingError

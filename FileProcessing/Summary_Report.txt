@@ -1,0 +1,9 @@
+Total records processed: 8
+Number of valid records: 8
+Number of errors:        0
+
+STORE001 total sales: 2879.0400000000004
+
+Widget A total sales: 2879.0400000000004
+Top 5 Products:
+1.    Widget A: 2879.0400000000004
