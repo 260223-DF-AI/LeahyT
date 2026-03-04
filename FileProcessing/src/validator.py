@@ -47,6 +47,13 @@ def validate_sales_record(record, line_number):
         print(f"Error: {e}. Date must be integers in yyyy-mm-dd format.")
         raise InvalidDataError
     
+    # check if store id is empty
+    try:
+        if record["store_id"] == "":
+            raise Exception
+    except:
+        print(f"Error: {e}. Store ID must not be empty")
+
     # verify quantity is an integer greater than 0
     try:
         record["quantity"] = int(record["quantity"])

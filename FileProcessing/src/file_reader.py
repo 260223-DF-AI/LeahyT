@@ -34,8 +34,8 @@ def read_csv_file(filepath):
                 for key in entryDict:
                     entryDict[key] = entry[counter]
                     counter += 1
-                fileContentList.append(entryDict)
-        print(fileContentList)
+                fileContentList.append(entryDict.copy())
+    
     except FileNotFoundError as e:
         print(f"Error: {e}. Did you give the correct file name?")
         raise FileProcessingError

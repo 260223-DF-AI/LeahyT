@@ -1,9 +1,12 @@
 Total records processed: 8
-Number of valid records: 8
-Number of errors:        0
+Number of valid records: 3
+Number of errors:        5
 
-STORE001 total sales: 2879.0400000000004
+STORE001 total sales: 659.78
+STORE002 total sales: 249.95000000000002
 
-Widget A total sales: 2879.0400000000004
+Widget A total sales: 659.78
+Gadget B total sales: 249.95000000000002
 Top 5 Products:
-1.    Widget A: 2879.0400000000004
+1.    Widget A: 659.78
+2.    Gadget B: 249.95000000000002
