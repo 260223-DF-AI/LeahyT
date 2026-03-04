@@ -1,0 +1,101 @@
+order_id,customer_id,order_date,product_name,category,quantity,unit_price,region
+1001,C001,2024-01-05,Laptop Pro  ,Electronics,1,1299.99,North
+1002,C002,2024-01-05, Wireless Mouse,Electronics,2,29.99,South
+1003,C001  ,2024-01-06,USB Cable,Accessories,3,9.99,North
+1004,,2024-01-07,Laptop Pro,,1,1299.99,North
+1005,C004,January 8th 2024,Flash Drive,Accessories,5,2.99,South
+1006,C005,2024-01-09,Monitor ,Electronics,1,199.99,East
+1007,C006,2024/01/10,Keyboard,Electronics,1,49.99,West
+1008,C007,2024-01-11,Mouse Pad ,Accessories,2,5.99,North
+1009,C008,2024-01-12,External HDD,Electronics,,89.99,South
+1010,C009,2024-01-13,Webcam,Electronics,1,59.99,
+1011,C010,2024-01-14,USB Hub ,Accessories,3,15.99,East
+1012,C011,2024-01-15,Laptop Stand,Accessories,2,39.99,West
+1013,,2024-01-16,Wireless Charger,Electronics,1,25.99,North
+1014,C013,2024-01-17,Headphones ,Electronics,1,199.99,South
+1015,C014,2024-01-18,Notebook,Office,5,3.99,East
+1016,C015,2024-01-19,Pens,Office,10,1.99,West
+1017,C016,2024-01-20,Desk Lamp ,Office,1,49.99,North
+1018,C017,2024-01-21,Chair,Office,1,149.99,South
+1019,C018,2024-01-22,Desk,Office,1,299.99,East
+1020,C019,2024-01-23,Router,Electronics,1,89.99,West
+1021,C020,2024-01-24,Smartphone,Electronics,1,699.99,North
+1022,C021,2024-01-25,Tablet,Electronics,1,399.99,South
+1023,C022,2024-01-26,Smartwatch,Electronics,1,199.99,East
+1024,C023,2024-01-27,Camera,Electronics,1,499.99,West
+1025,C024,2024-01-28,Tripod,Accessories,1,59.99,North
+1026,C025,2024-01-29,Memory Card,Accessories,2,29.99,South
+1027,C026,2024-01-30,Microphone ,Electronics,1,129.99,East
+1028,C027,2024-01-31,Speaker,Electronics,1,99.99,West
+1029,C028,,Power Bank,Electronics,1,49.99,North
+1030,C029,2024-02-02,Charger,Accessories,1,19.99,South
+1031,C030,2024-02-03,Cable Organizer,Accessories,2,9.99,East
+1032,C031,2024-02-04,Printer,Electronics,1,149.99,West
+1033,C032,2024-02-05,Ink Cartridge,Office,3,29.99,North
+1034,C033,2024-02-06,Paper,Office,10,4.99,South
+1035,C034,2024-02-07,Stapler,Office,1,9.99,East
+1036,C035,2024-02-08,Scissors,Office,1,5.99,West
+1037,C036,2024-02-09,Folder,Office,5,2.99,North
+1038,C037,2024-02-10,Envelope,Office,10,0.99,South
+1039,C038,2024-02-11,Sticky Notes,Office,3,3.99,East
+1040,C039,2024-02-12,Pen Holder,Office,1,7.99,West
+1041,C040,2024-02-13,Laptop Bag ,Accessories,1,79.99,North
+1042,C041,2024-02-14,Screen Protector,Accessories,2,12.99,South
+1043,C042,2024-02-15,USB-C Cable,Accessories,3,9.99,East
+1044,C043,2024-02-16,HDMI Cable,Accessories,2,14.99,West
+1045,C044,2024-02-17,Ethernet Cable,Accessories,1,7.99,North
+1046,C045,2024-02-18,Monitor Stand ,Accessories,1,29.99,South
+1047,C046,2024-02-19,Mouse ,Electronics,1,25.99,East
+1048,C047,2024-02-20,Keyboard ,Electronics,1,49.99,West
+1049,C048,2024-02-21,Graphic Tablet,Electronics,1,199.99,North
+1050,C049,2024-02-22,Stylus,Electronics,1,29.99,South
+1051,C050,2024-02-23,Camera Lens,Electronics,1,299.99,East
+1052,C051,2024-02-24,Tripod Mount,Accessories,1,19.99,West
+1053,C052,2024-02-25,Flashlight,Accessories,1,9.99,North
+1054,C053,2024-02-26,Battery Pack,Electronics,2,49.99,South
+1055,C054,2024-02-27,Adapter,Electronics,1,14.99,East
+1056,C055,2024-02-28,Charger Cable,Accessories,2,9.99,West
+1057,C056,2024-02-29,USB Drive,Accessories,3,4.99,North
+1058,C057,2024-03-01,Notebook,Office,5,3.99,South
+1059,C058,2024-03-02,Pens,Office,10,1.99,East
+1060,C059,2024-03-03,Desk Lamp,Office,1,49.99,West
+1061,C060,2024-03-04,Chair,Office,1,149.99,North
+1062,C061,2024-03-05,Desk,Office,1,299.99,South
+1063,C062,2024-03-06,Router,Electronics,1,89.99,East
+1064,C063,2024-03-07,Smartphone,Electronics,1,699.99,West
+1065,C064,2024-03-08,Tablet,Electronics,1,399.99,North
+1066,C065,2024-03-09,Smartwatch,Electronics,1,199.99,South
+1067,C066,2024-03-10,Camera,Electronics,1,499.99,East
+1068,C067,2024-03-11,Tripod,Accessories,1,59.99,West
+1069,C068,2024-03-12,Memory Card,Accessories,2,29.99,North
+1070,C069,2024-03-13,Microphone,Electronics,1,129.99,South
+1071,C070,2024-03-14,Speaker,Electronics,1,99.99,East
+1072,C071,2024-03-15,Power Bank,Electronics,1,49.99,West
+1073,C072,2024-03-16,Charger,Accessories,1,19.99,North
+1074,C073,2024-03-17,Cable Organizer,Accessories,2,9.99,South
+1075,C074,2024-03-18,Printer,Electronics,1,149.99,East
+1076,C075,2024-03-19,Ink Cartridge,Office,3,29.99,West
+1077,C076,2024-03-20,Paper,Office,10,4.99,North
+1078,C077,2024-03-21,Stapler,Office,1,9.99,South
+1079,C078,2024-03-22,Scissors,Office,1,5.99,East
+1080,C079,2024-03-23,Folder,Office,5,2.99,West
+1081,C080,2024-03-24,Envelope,Office,10,0.99,North
+1082,C081,2024-03-25,Sticky Notes,Office,3,3.99,South
+1083,C082,2024-03-26,Pen Holder,Office,1,7.99,East
+1084,C083,2024-03-27,Laptop Bag,Accessories,1,79.99,West
+1085,C084,2024-03-28,Screen Protector,Accessories,2,12.99,North
+1086,C085,2024-03-29,USB-C Cable,Accessories,3,9.99,South
+1087,C086,2024-03-30,HDMI Cable,Accessories,2,14.99,East
+1088,C087,2024-03-31,Ethernet Cable,Accessories,1,7.99,West
+1089,C088,2024-04-01,Monitor Stand,Accessories,1,29.99,North
+1090,C089,2024-04-02,Mouse,Electronics,1,25.99,South
+1091,C090,2024-04-03,Keyboard,Electronics,1,49.99,East
+1092,C091,2024-04-04,Graphic Tablet,Electronics,1,199.99,West
+1093,C092,2024-04-05,Stylus,Electronics,1,29.99,North
+1094,C093,2024-04-06,Camera Lens,Electronics,1,299.99,South
+1095,C094,2024-04-07,Tripod Mount,Accessories,1,19.99,East
+1096,C095,2024-04-08,Flashlight,Accessories,1,9.99,West
+1097,C096,2024-04-09,Battery Pack,Electronics,2,49.99,North
+1098,C097,2024-04-10,Adapter,Electronics,1,14.99,South
+1099,C098,2024-04-11,Charger Cable,Accessories,2,9.99,East
+1100,C099,2024-04-12,USB Drive,Accessories,3,4.99,West
