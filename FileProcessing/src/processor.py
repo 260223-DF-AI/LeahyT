@@ -23,10 +23,14 @@ def process_sales_file(input_path, output_dir):
         recordDictionary = calculate_totals(recordDictionary)
         aggregatedTotals = [aggregate_by_store(recordDictionary), aggregate_by_product(recordDictionary)]
         write_summary_report(output_dir, recordDictionary, errors, aggregatedTotals)
+        write_clean_csv("cleaned_sample_sales.csv",recordDictionary)
         return True
     except Exception as e:
         print(e)
         return False
 
 if __name__ == "__main__":
-    process_sales_file("sample_sales.csv", "Summary_Report.txt")
+    if (process_sales_file("sample_sales.csv", "Summary_Report.txt")):
+        print("Success")
+    else:
+        print("Failure")

@@ -43,7 +43,7 @@ def write_clean_csv(filepath, records):
     # simply write each record to a new file
     with open(filepath, "w") as file:
         for record in records:
-            file.write(f"{record["date"]}, {record["store_id"]}, {record["product"]}, {record["quantity"]}, {record["price"]},")
+            file.write(f"{record["date"]}, {record["store_id"]}, {record["product"]}, {record["quantity"]}, {record["price"]},\n")
 
 def write_error_log(filepath, errors):
     """
