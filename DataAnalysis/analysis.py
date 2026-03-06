@@ -48,6 +48,7 @@ def clean_data(df):
 
     df["order_date"] = pd.to_datetime(df["order_date"], errors='coerce')
 
+    df["total_amount"] = df["quantity"] * df["unit_price"]
     pass
 
 def add_time_features(df):
@@ -58,7 +59,115 @@ def add_time_features(df):
     - quarter
     - is_weekend (boolean)
     """
+    df["day_of_week"] = df["order_date"].dt.weekday
+    df["month"] = df["order_date"].dt.month
+    df["quarter"] = df["order_date"].dt.quarter
+    df["is_weekend"] = df["day_of_week"] >= 5
+
+def sales_by_category(df):
+    """
+    Calculate total sales and order count by category.
+    Returns: DataFrame with columns [category, total_sales, order_count, avg_order_value]
+    Sorted by total_sales descending.
+    """
+    result = (
+        df.assign(sales=df["quantity"] * df["unit_price"])
+        .groupby("category")
+        .agg(
+            total_amount=("sales", "sum"),
+            order_count=("order_id", "count"),
+            avg_order_value=("sales", "mean")
+        )
+        .reset_index()
+        .sort_values(by="total_amount", ascending=False)
+    )
+
+    return result
+
+def sales_by_region(df):
+    """
+    Calculate total sales by region.
+    Returns: DataFrame with columns [region, total_sales, percentage_of_total]
+    """
+    df = df.assign(sales=df["quantity"] * df["unit_price"])
+
+    # total sales across all regions
+    total_sales_all = df["sales"].sum()
+
+    # group by region
+    result = (
+        df.groupby("region")
+        .agg(total_sales=("sales", "sum"))
+        .reset_index()
+    )
+
+    # calculate percentage of total
+    result["percentage_of_total"] = (result["total_sales"] / total_sales_all) * 100
+
+    return result
+
+def top_products(df, n=10):
+    """
+    Find top N products by total sales.
+    Returns: DataFrame with columns [product_name, category, total_sales, units_sold]
+    """
+    
+    result = (
+        df.groupby("product_name")
+        .agg(
+            category=("category","first"),
+            total_sales=("total_amount", "sum"),
+            units_sold=("quantity", "sum")
+            )
+        .sort_values(by="total_sales", ascending=False)
+    )
+    
+    return result
+
+def daily_sales_trend(df):
+    """
+    Calculate daily sales totals.
+    Returns: DataFrame with columns [date, total_sales, order_count]
+    """
+    result = (
+        df.groupby("day_of_week")
+        .agg(
+            category=("order_date","first"),
+            total_sales=("total_amount", "sum"),
+            order_count=("order_id", "sum")
+            )
+        .sort_values(by="total_sales", ascending=False)
+    )
+    return result
+
+def customer_analysis(df):
+    """
+    Analyze customer purchasing behavior.
+    Returns: DataFrame with columns [customer_id, total_spent, order_count, 
+             avg_order_value, favorite_category]
+    """
+    result = (
+        df.groupby("customer_id")
+        .agg(
+            total_spent=("total_amount","sum"),
+            order_count=("customer_id", "sum"),
+            avg_order_value=("total_amount", "mean"),
+            favorite_category=("category", lambda x: x.mode()[0])
+            )
+        .sort_values(by="total_spent", ascending=False)
+    )
+    return result
+
+def weekend_vs_weekday(df):
+    """
+    Compare weekend vs weekday sales.
+    Returns: Dict with weekend and weekday total sales and percentages.
+    """
     pass
 
 df = load_data("orders.csv")
-explore_data(df)
+# print(df)
+# print(sales_by_region(df))
+# print(top_products(df))
+add_time_features(df)
+print(customer_analysis(df))
