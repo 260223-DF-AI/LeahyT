@@ -166,7 +166,7 @@ def weekend_vs_weekday(df):
     pass
 
 df = load_data("orders.csv")
-# print(df)
+print(df)
 # print(sales_by_region(df))
 # print(top_products(df))
 add_time_features(df)
