@@ -21,9 +21,9 @@ transform = transforms.Compose([
 full_dataset = datasets.ImageFolder(root="data/fruits-360_original-size/fruits-360-original-size/Training", transform=transform)
 test_dataset = datasets.ImageFolder(root="data/fruits-360_original-size/fruits-360-original-size/Test", transform=transform)
 
-selected_classes = ["apple_red_1", "Banana 3", "Blackberry 1", "Carrot 1", "Cucumber 1", "Pepper Red 3", "Plum 4", "Strawberry 2"]  # only these classes
+#selected_classes = ["apple_red_1", "Banana 3", "Blackberry 1", "Carrot 1", "Cucumber 1", "Pepper Red 3", "Plum 4", "Strawberry 2"]  # only these classes
 
-#selected_classes = ["Banana 3", "Blackberry 1", "Cucumber 1", "Plum 4"]  # only these classes
+selected_classes = ["Banana 3", "Blackberry 1", "Cucumber 1", "Plum 4"]  # only these classes
 class_to_idx = full_dataset.class_to_idx
 selected_indices = [class_to_idx[c] for c in selected_classes]
 
@@ -108,8 +108,8 @@ class FruitGPT(nn.Module):
             nn.Flatten(),
             nn.Linear(32768, 128),
             nn.ReLU(),
-            nn.Dropout(0.3),
-            nn.Linear(128, 8)
+            nn.Dropout(0.1),
+            nn.Linear(128, 4)
         )
 
     def forward(self, x):
@@ -193,8 +193,8 @@ def predict_folder(model, folder, transform, class_names, device):
             
 
 if __name__ == "__main__":
-    modelCount = 3
-    epochCount = 2
+    modelCount = 4
+    epochCount = 1
     for i in range(modelCount):
         model = FruitGPT().to(device)
         criterion = nn.CrossEntropyLoss()
